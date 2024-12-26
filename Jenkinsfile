@@ -28,14 +28,13 @@ pipeline {
 
             }
         }
-        stage('Deploy') {
-            when {
-                expression { env.GIT_BRANCH == 'origin/main' }
-            }
+        stage('Docker build') {
+            
             steps {
-
-                    sh "echo This is deploy"
-                    //error "pipeline failed"
+                sh """
+                docker build -t narahari517/backend:${appVersion}
+                docker images
+                """
 
             }
         }
