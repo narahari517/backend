@@ -78,7 +78,7 @@ pipeline {
             }
             steps {
                 build job: 'backend-deploy', parameters: [
-                    string(name: 'version', value: "${appVersion}"),
+                    string(name: 'version', value: "$appVersion"),
                     string(name: 'ENVIRONMENT', value: "dev"),
                     
                 ], wait: false
