@@ -7,6 +7,9 @@ pipeline {
         disableConcurrentBuilds()
         retry(1)
     }
+    parameters{
+        booleanParam(name: 'deploy', defaultValue: false, description: 'Select to deploy or not')
+    }
     environment {
         DEBUG = 'true'
         appVersion = '' // this will become global, we can use across pipeline
