@@ -75,7 +75,11 @@ pipeline {
             }
             steps{
                 steps {
-                    build job: 'backend-deploy', parameters: [string(name: 'ACTION', value: "destroy")], wait: false
+                    build job: 'backend-deploy', parameters: [
+                        string(name: 'version', value: "${appVersion}"),
+                        string(name: 'ENVIRONMENT', value: "dev"),
+                        
+                    ], wait: false
             }
             }
         }
